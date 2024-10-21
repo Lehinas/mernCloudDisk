@@ -1,0 +1,151 @@
+.file {
+    padding: 10px 0;
+    border-bottom: solid 2px #566885;
+    display: grid;
+    grid-template-columns: 1fr 4fr repeat(4, 1fr);
+    align-items: center;
+}
+
+.file:hover {
+    transform: scale(1.02);
+}
+
+.file_list_file:hover {
+    grid-template-columns: 1fr 4fr repeat(5, 1fr);
+}
+
+.file:hover .file_list_btn {
+    display: block;
+}
+
+
+
+.file:hover .file_list_date {
+    grid-column-start: 3;
+}
+
+.file:hover .file_list_size {
+    grid-column-start: 4;
+}
+
+.file_list_img {
+    grid-column-start: 1;
+    justify-self: center;
+}
+
+.file_list_name {
+    grid-column-start: 2;
+}
+
+
+.file_list_date {
+    grid-column-start: 5;
+    justify-self: center;
+}
+
+.file_list_size {
+    grid-column-start: 6;
+    justify-self: center;
+}
+
+.file_list_btn {
+    display: none;
+    width: fit-content;
+    justify-self: center;
+    padding: 5px 15px !important;
+    transition: all 0.3s ease;
+}
+
+
+.file_list_btn:hover {
+    border-color: #566885;
+    background-color: #f0f8ff;
+}
+
+.file_list_btn:active {
+    background-color: #566885;
+    border-color: #0056b3;
+}
+
+.file_list_btn:hover img {
+    transform: scale(1.1);
+}
+
+.file_list_btn:active img {
+    transform: scale(0.95);
+}
+
+.file_plate {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    position: relative;
+    transition: transform 3s ease;
+}
+
+.file_plate_img {
+    width: 100px;
+}
+
+.file_plate_name {
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.file_plate_info_card {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 10;
+}
+
+.file_plate:hover .file_plate_info_card {
+    display: block;
+}
+
+
+.file_plate_info_name,
+.file_plate_info_time,
+.file_plate_info_size {
+    font-size: 17px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.file_plate_info_buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.file_plate_info_btn {
+    padding: 5px 15px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file_plate_info_btn:hover {
+    border-color: #4B9CD3;
+    background-color: #4B9CD3;
+}
+
+.file_plate_info_btn:active {
+    background-color: #4B9CD3;
+    border-color: #007BFF;
+}
+
+.file_plate_info_btn:hover img {
+    transform: scale(1.1);
+}
+
+.file_plate_info_btn:active img {
+    transform: scale(0.95);
+}

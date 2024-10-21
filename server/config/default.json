@@ -1,0 +1,12 @@
+{
+  "serverPath": "D:\\WWW\\mern\\server",
+  "filesDirPath": "D:\\WWW\\mern\\server\\storage\\files",
+  "serverPort": 5000,
+  "DB_URL": "mongodb+srv://user:gPSMAudoFMxbX0d6@cluster0.8578adc.mongodb.net/",
+  "secretKeyAccess": "puckIsTop",
+  "secretKeyRefresh": "puckIsBest",
+  "SMTP_HOST": "smtp.mail.ru",
+  "SMTP_PORT": 465,
+  "SMTP_USER": "lehinasmerntest@mail.ru",
+  "SMTP_PASSWORD": "TSsHzusvvn0KarNHR95L"
+}

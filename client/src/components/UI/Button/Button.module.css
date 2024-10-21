@@ -1,0 +1,8 @@
+.btn{
+    font-size: 16px;
+    padding: 9px;
+    border: 1px #566885 solid;
+    border-radius: 14px;
+    background-color: inherit;
+    line-height: normal;
+}
