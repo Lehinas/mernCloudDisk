@@ -1,0 +1,13 @@
+.FileTabs{
+    width: 20%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.FileTabs_tabs{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

@@ -1,28 +1,39 @@
-.filelist {
+.FileList {
     margin-top: 20px;
 }
 
-.filelist_header {
+.FileList_header {
     display: grid;
     grid-template-columns: 1fr 4fr repeat(4, 1fr);
     border-bottom: solid 2px #566885;
+    padding: 2px 0;
 }
 
-.filelist_name {
+.FileList_name {
     grid-column-start: 2;
 }
 
-.filelist_date {
+.FileList_date {
     grid-column-start: 5;
     justify-self: center;
 }
 
-.filelist_size {
+.FileList_size {
     grid-column-start: 6;
     justify-self: center;
 }
+.FileList_name, .FileList_date, .FileList_size{
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.FileList_name:hover, .FileList_date:hover, .FileList_size:hover{
+    background-color: #E9E6E6;
 
-.fileplate{
+}
+
+.FilePlate{
     display: flex;
     flex-wrap: wrap;
     gap: 15px;

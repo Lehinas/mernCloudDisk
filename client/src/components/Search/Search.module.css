@@ -3,40 +3,37 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-right: 20px;
 }
 
 .search_input {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 16px;
-    width: 250px;
+    padding: 10px 10px 10px 50px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 500px;
+    background: url("../../assets/images/loupe.svg") no-repeat left 10px center;
+    background-color: rgb(233, 238, 246);
+    border-radius: 24px;
     transition: all 0.3s ease;
-    background: url("../../assets/images/loupe.svg") no-repeat right 10px center;
-    cursor: pointer;
+    border: none;
 }
-
 
 .search_input:focus {
-    border-color: #566885;
-    box-shadow: 0 0 5px rgba(86, 104, 133, 0.5);
     outline: none;
+    border-color: #566885;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(86, 104, 133, 0.5);
 }
 
-.search_button {
+.search_btn {
     position: absolute;
-    right: 10px;
+    right: 5%;
+    line-height: 0;
     background-color: transparent;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.search_button:hover {
-    transform: scale(1.1);
-}
-
-.search_button:active {
-    transform: scale(0.95);
+.search_btn img {
+    width: 16px;
 }

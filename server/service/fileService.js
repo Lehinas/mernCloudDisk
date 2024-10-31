@@ -117,9 +117,9 @@ class FileService {
         return "lol"
     }
     
-    async searchFiles(searchName, userId) {
-        let files = await fileModel.find({user: userId})
-        files = files.filter(file => file.name.includes(searchName))
+    async searchFiles (searchName, userId) {
+        let files = await fileModel.find({ user: userId })
+        files = files.filter(file => (file.name.toLowerCase()).includes(searchName.toLowerCase()))
         return files
     }
 }

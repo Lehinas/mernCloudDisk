@@ -24,3 +24,4 @@ export const useAuthForm = () => {
         resolver: zodResolver(authSchema),
     })
 }
+

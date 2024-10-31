@@ -1,8 +1,6 @@
 .navbar {
-    height: 50px;
-    background: white;
     display: flex;
-    padding: 8px 200px;
+    padding: 8px 50px 8px 20px;
     color: #566885 !important;
     font-weight: 700;
     justify-content: space-between;
@@ -16,7 +14,7 @@
 }
 
 .navbar_logo_img {
-
+    width: 36px;
 }
 
 .navbar_title {
@@ -40,9 +38,11 @@
     align-items: center;
     gap: 10px;
 }
-
+.navbar_user img {
+    width: 36px;
+}
 .navbar_username {
     text-decoration: none;
     color: #566885;
-
+    font-size: 22px;
 }

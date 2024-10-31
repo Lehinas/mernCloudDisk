@@ -1,197 +1,50 @@
-.fileControl {
+.FileControl{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.FileControl_header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
-.fileControl_btns {
+.FileControl_path {
+    display: flex;
+    gap: 25px;
+}
+
+.FileControl_view {
     display: flex;
     gap: 5px;
-    flex-direction: column;
 }
 
-.fileControl_upload {
-    display: flex;
-    gap: 5px;
-}
-
-.fileControl_btn {
-    width: fit-content;
-    padding: 10px;
-    background-color: inherit;
-    transition: all 0.3s ease;
-}
-
-.fileControl_btn:hover {
-    border-color: #566885;
-    background-color: #f0f8ff;
-}
-
-.fileControl_btn:active {
-    background-color: #566885;
-    border-color: #0056b3;
-}
-
-.fileControl_btn_img {
-    width: fit-content;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.fileControl_btn_img:hover {
-    border-color: #566885;
-    background-color: #f0f8ff;
-}
-
-.fileControl_btn_img:active {
-    background-color: #566885;
-    border-color: #0056b3;
-}
-
-.fileControl_view {
-    display: flex;
-    gap: 15px;
-}
-
-.fileControl_sort {
-    display: flex;
-    gap: 10px;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.fileControl_sort_select {
-    border: 2px solid transparent;
-    background-color: inherit;
-    border-radius: 6px;
-    font-size: 17px;
-    color: #333;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.fileControl_sort_select:hover {
-    border-color: #566885;
-    background-color: #f0f8ff;
-}
-
-.fileControl_sort_select:focus {
-    outline: none;
-    border-color: #566885;
-    background-color: #f0f8ff;
-    box-shadow: 0 0 5px rgba(86, 104, 133, 0.5);
-}
-
-.fileControl_sort_option {
-    background-color: inherit;
-    color: #333;
-    padding: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.fileControl_sort_option:hover {
-    background-color: #566885;
-    color: #fff;
-}
-
-.fileControl_sort_select:active .fileControl_sort_option {
-    background-color: #566885;
-    color: #fff;
-}
-
-
-.fileControl_view_sort_btn {
-    background-color: inherit;
-    border: 2px solid transparent;
-    border-radius: 6px;
-    padding: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.fileControl_view_sort_btn img {
-    width: 24px;
-}
-
-.fileControl_sort_select option:hover {
-    background-color: #f0f8ff;
-}
-
-.fileControl_sort_select:hover {
-    border-color: #566885;
-}
-
-.fileControl_sort_select:focus {
-    outline: none;
-    border-color: #566885;
-    box-shadow: 0 0 5px rgba(86, 104, 133);
-}
-.fileControl_view_sort_btn:hover {
-    border-color: #566885;
-    background-color: #f0f8ff;
-}
-
-.fileControl_view_sort_btn:active {
-    background-color: rgba(86, 104, 133, 0.1);
-    border-color: #0056b3;
-}
-
-.fileControl_view_sort_btn:hover img {
-    transform: scale(1.3);
-}
-
-.fileControl_view_sort_btn:active img {
-    transform: scale(0.95);
-}
-.fileControl_view_type {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 1px;
-}
-
-.fileControl_view_type_btn {
-    background-color: inherit;
-    border: 2px solid transparent;
-    border-radius: 6px;
-    padding: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.fileControl_view_type_btn img {
-    width: 20px;
+.FileControl_view_btn {
     border: none;
+    line-height: 0;
+    background-color: rgb(233, 238, 246);
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.FileControl_view_btn:hover {
+    background-color: #e0e0e0;
+    box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.FileControl_view_btn img {
+    width: 25px;
     transition: transform 0.3s ease;
 }
 
-.fileControl_view_type_btn:hover {
-    border-color: #566885;
-    background-color: #f0f8ff;
+.FileControl_view_btn:hover img {
+    transform: scale(1.1);
 }
+.FileControl_filter{
 
-.fileControl_view_type_btn:active {
-    background-color: rgba(86, 104, 133, 0.1);
-    border-color: #0056b3;
 }
-
-.fileControl_view_type_btn:hover img {
-    transform: scale(1.3);
-}
-
-.fileControl_view_type_btn:active img {
-    transform: scale(0.95);
-}
-

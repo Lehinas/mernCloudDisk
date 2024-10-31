@@ -3,11 +3,15 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     files: [],
     currentDir: null,
-    dirStack: [],
+    currentFolder: "Мой диск",
+    folderStack: [{
+        name: "Мой диск",
+        id: null
+    }],
     sortName: "date",
     sortType: "inc",
     fileView: "list",
-    searchName: ""
+    searchName: "",
 }
 
 export const fileSlice = createSlice({
@@ -15,7 +19,6 @@ export const fileSlice = createSlice({
     initialState,
     reducers: {
         setFiles: (state, action) => {
-            console.log(action.payload)
             state.files = action.payload
         },
         addFile: (state, action) => {
@@ -24,11 +27,17 @@ export const fileSlice = createSlice({
         setCurrentDir: (state, action) => {
             state.currentDir = action.payload
         },
-        pushToStack: (state, action) => {
-            state.dirStack.push(action.payload)
+        setCurrentFolder: (state, action) => {
+            state.currentFolder = action.payload
         },
-        popFromStack: (state, action) => {
-            state.dirStack.pop()
+        pushToFolderStack: (state, action) => {
+            state.folderStack.push(action.payload)
+        },
+        setFolderStack: (state, action) => {
+            state.folderStack = action.payload
+        },
+        popFromFolderStack: (state, action) => {
+            state.folderStack.pop()
         },
         changeSortName: (state, action) => {
             state.sortName = action.payload
@@ -49,12 +58,14 @@ export const {
     setFiles,
     addFile,
     setCurrentDir,
-    pushToStack,
-    popFromStack,
+    pushToFolderStack,
+    popFromFolderStack,
     changeSortName,
     changeSortType,
     changeFileView,
     changeSearchName,
+    setCurrentFolder,
+    setFolderStack,
 } = fileSlice.actions
 
 export const fileReducer = fileSlice.reducer

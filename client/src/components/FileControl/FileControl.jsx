@@ -1,114 +1,69 @@
 import React, { useRef, useState } from "react"
-import Button from "../UI/Button/Button"
-import { changeFileView, changeSortName, changeSortType, popFromStack, setCurrentDir } from "../../store/fileSlice"
+import { changeFileView, changeSortType } from "../../store/fileSlice"
 import { useDispatch, useSelector } from "react-redux"
-import Input from "../UI/Input/Input"
 import { useUploadFiles } from "../../hooks/useUploadFiles"
 
-import back from "../../assets/images/back.svg"
-import sort_dec from "../../assets/images/sort_dec.svg"
-import sort_inc from "../../assets/images/sory_inc.svg"
-import plate2x2 from "../../assets/images/plate2x2.svg"
-import plate3x3 from "../../assets/images/plate3x3.svg"
-import list from "../../assets/images/list.svg"
-
 import styles from "./FileControl.module.css"
-import Popup from "../Popup/Popup"
-import Search from "../Search/Search"
+import FilePath from "../FilePath/FilePath"
+import plate from "../../assets/images/plate.svg"
+import list from "../../assets/images/list.svg"
+import sortDec from "../../assets/images/sort_dec.svg"
+import sortInc from "../../assets/images/sort_inc.svg"
+import FilterItem from "../FilterItem/FilterItem"
 
 const FileControl = () => {
-    const dirStack = useSelector(state => state.files.dirStack)
+    const folderStack = useSelector(state => state.files.folderStack)
     const sortName = useSelector(state => state.files.sortName)
     const sortType = useSelector(state => state.files.sortType)
+    const fileView = useSelector(state => state.files.fileView)
+    const currentDir = useSelector(state => state.files.currentDir)
+    const currentFolder = useSelector(state => state.files.currentFolder)
     const dispatch = useDispatch()
     
-    const { uploadHandler } = useUploadFiles()
     
-    const fileInputRef = useRef(null)
-    const [show, setShow] = useState(false)
-    
-    const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
-    
-    const backClickHandler = () => {
-        const backDirId = Array.from(dirStack).pop()
-        dispatch(setCurrentDir(backDirId))
-        dispatch(popFromStack())
+    const changeViewType = (value) => {
+        dispatch(changeFileView(value))
     }
-    const inputClickHandler = () => {
-        if (fileInputRef.current) {
-            fileInputRef.current.click()
-        }
-    }
-    const sortTypeChange = () => {
-        if (sortType === "inc") {
+    
+    const changeSortHandler = () => {
+        if(sortType === "inc"){
             dispatch(changeSortType("dec"))
-        } else {
+        }else{
             dispatch(changeSortType("inc"))
         }
     }
-    
     return (
-        <div className={styles.fileControl}>
-            <div className={styles.fileControl_btns}>
-                <Button className={styles.fileControl_btn_img} onClick={backClickHandler}>
-                    <img src={back} />
-                </Button>
-                <div className={styles.fileControl_upload}>
-                    <Button className={styles.fileControl_btn} onClick={handleShow}>Создать папку</Button>
-                    <Button className={styles.fileControl_btn} onClick={inputClickHandler}>Загрузить файл</Button>
-                </div>
-                <Input
-                    style={{ display: "none" }}
-                    type={"file"}
-                    multiple={true}
-                    onChange={(e) => uploadHandler(e.target.files)}
-                    ref={fileInputRef}
-                />
-            </div>
-            
-            <Search />
-            
-            <div className={styles.fileControl_view}>
-                <div className={styles.fileControl_sort}>
-                    <button className={styles.fileControl_view_sort_btn} onClick={sortTypeChange}>
-                        <img
-                            src={sortType === "inc" ? sort_inc : sort_dec}
+        <div className={styles.FileControl}>
+            <div className={styles.FileControl_header}>
+                <div className={styles.FileControl_path}>
+                    {folderStack.map((item, i) => {
+                        return <FilePath
+                            currentId={item.id}
+                            currentFolder={item.name}
+                            item={item}
+                            key={i}
+                            last={(folderStack.length - 1) === i ? true : false}
                         />
-                    </button>
-                    <select
-                        name={sortName}
-                        onChange={(e) => dispatch(changeSortName(e.target.value))}
-                        className={styles.fileControl_sort_select}
-                    >
-                        <option className={styles.fileControl_sort_option} value={"date"}>По дате</option>
-                        <option className={styles.fileControl_sort_option} value={"name"}>По названию</option>
-                        <option className={styles.fileControl_sort_option} value={"size"}>По размеру</option>
-                    </select>
+                        
+                    })
+                    }
                 </div>
-                <div className={styles.fileControl_view_type}>
-                    <button
-                        onClick={() => dispatch(changeFileView("plate2x2"))}
-                        className={styles.fileControl_view_type_btn}
-                    >
-                        <img src={plate2x2} />
+                <div className={styles.FileControl_view}>
+                    
+                    <button className={styles.FileControl_view_btn} onClick={changeSortHandler}>
+                        <img src={sortType === "inc" ? sortInc : sortDec} />
                     </button>
-                    <button
-                        onClick={() => dispatch(changeFileView("plate3x3"))}
-                        className={styles.fileControl_view_type_btn}
-                    >
-                        <img src={plate3x3} />
-                    </button>
-                    <button
-                        onClick={() => dispatch(changeFileView("list"))}
-                        className={styles.fileControl_view_type_btn}
-                    >
+                    <button className={styles.FileControl_view_btn} onClick={() => changeViewType("list")}>
                         <img src={list} />
                     </button>
+                    <button className={styles.FileControl_view_btn} onClick={() => changeViewType("plate")}>
+                        <img src={plate} />
+                    </button>
                 </div>
-            
             </div>
-            <Popup handleClose={handleClose} show={show} />
+            <div className={styles.FileControl_filter}>
+                {[{ name: "Тип", type: "type" }].map((item, i) => <FilterItem item={item} key={i} />)}
+            </div>
         </div>
     )
 }

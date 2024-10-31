@@ -4,7 +4,7 @@ import styles from "../AuthInput/Input.module.css"
 const Input = forwardRef(({ placeholder, value, onChange, type, style, multiple, className }, ref) => {
     return (
         <input
-            className={`${styles.input} ${className}`}
+            className={`${className} ${styles.a}`}
             placeholder={placeholder}
             value={value}
             onChange={onChange}

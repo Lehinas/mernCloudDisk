@@ -21,7 +21,6 @@ api.interceptors.response.use((config) => {
         originalRequest._isRetry = true;
         try {
             const response = await AuthService.checkAuth()
-            console.log(response.data.tokens)
             localStorage.setItem('token', response.data.tokens.accessToken);
             return api.request(originalRequest);
         } catch (e) {

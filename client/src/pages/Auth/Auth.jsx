@@ -52,7 +52,7 @@ const Auth = ({ type }) => {
                     break
                 }
         }
-        navigate("/")
+        navigate("/drive")
     }
     
     const cleanForm = () => {

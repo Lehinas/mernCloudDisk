@@ -1,0 +1,38 @@
+.FilePath {
+    padding: 5px 12px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: inherit;
+}
+
+.FilePath img {
+}
+
+
+.FilePath:hover {
+    background-color: #E9E6E6;
+
+}
+
+.FilePath_btn {
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
+    position: relative;
+}
+
+.FilePath_btn_chevron::after {
+    content: "";
+    display: inline-block;
+    background: url("../../assets/images/chevron_right.svg") no-repeat center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+

@@ -24,7 +24,7 @@ const router = createBrowserRouter([
 				element: <Auth type={"login"}/>
 			},
             {
-                path: "/",
+                path: "/drive",
                 element: <Disk />
             }
 		]

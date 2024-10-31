@@ -5,6 +5,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import AuthService from "./services/AuthService"
 import { setUser } from "./store/userSlice"
+import FileNavigation from "./components/FileNavigation/FileNavigation"
 
 function App () {
     const isAuth = useSelector(state => state.user.isAuth)
@@ -34,8 +35,11 @@ function App () {
     return (
         <div className="App">
             <Navbar />
-            <div id="detail">
-                <Outlet />
+            <div className={"App_split"}>
+                <FileNavigation />
+                <div id="detail">
+                    <Outlet />
+                </div>
             </div>
         </div>
     )
