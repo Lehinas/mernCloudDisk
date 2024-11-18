@@ -31,10 +31,8 @@ const Auth = ({ type }) => {
             case "reg":
                 try {
                     const response = await AuthService.registration(email, username, password)
-                    console.log(response)
                     localStorage.setItem("token", response.data.tokens.accessToken)
-                    dispatch(setUser(response.data))
-                    
+                    dispatch(setUser(response.data.user))
                 } catch (e) {
                     console.log(e)
                 } finally {
@@ -43,16 +41,15 @@ const Auth = ({ type }) => {
             case "login":
                 try {
                     const response = await AuthService.login(email, password)
-                    console.log(response)
                     localStorage.setItem("token", response.data.tokens.accessToken)
-                    dispatch(setUser(response.data))
+                    dispatch(setUser(response.data.user))
                 } catch (e) {
                     console.log(e)
                 } finally {
                     break
                 }
         }
-        navigate("/drive")
+        navigate("/disk")
     }
     
     const cleanForm = () => {

@@ -7,12 +7,13 @@ const useFetchFiles = () => {
     const sortName = useSelector(state => state.files.sortName)
     const sortType = useSelector(state => state.files.sortType)
     const currentDir = useSelector(state => state.files.currentDir)
+    const viewType = useSelector(state => state.files.viewType)
     const isAuth = useSelector(state => state.user.isAuth)
     const dispatch = useDispatch()
     
     const fetchFiles = async () => {
         try {
-            const response = await FileService.getFiles(currentDir, sortName, sortType)
+            const response = await FileService.getFiles(currentDir, sortName, sortType, viewType)
             dispatch(setFiles(response.data))
         } catch (e) {
             console.error("Ошибка при запросе файлов: ", e)
@@ -22,7 +23,7 @@ const useFetchFiles = () => {
         if (isAuth) {
             fetchFiles()
         }
-    }, [dispatch, isAuth, currentDir, sortName, sortType])
+    }, [dispatch, isAuth, currentDir, sortName, sortType, viewType])
 }
 
 export default useFetchFiles

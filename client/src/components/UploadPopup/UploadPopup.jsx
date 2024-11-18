@@ -3,7 +3,7 @@ import styles from "./UploadPopup.module.css"
 import Button from "../UI/Button/Button"
 
 import plus from "../../assets/images/plus.svg"
-import folder_upload from "../../assets/images/folder_upload.svg"
+import upload_folder from "../../assets/images/folder_upload.svg"
 import upload_file from "../../assets/images/upload_file.svg"
 import create_new from "../../assets/images/create_new.svg"
 import UploadPopupItem from "../UploadPopupItem/UploadPopupItem"
@@ -14,18 +14,19 @@ const UploadPopup = () => {
     const tabs = [
         [
             {
+                type: "create_folder",
                 logo: create_new,
-                text: "Новая папка",
+                name: "Новая папка",
             },
-        ],
-        [
             {
+                type: "upload_file",
                 logo: upload_file,
-                text: "Загрузить файл",
+                name: "Загрузить файл",
             },
             {
-                logo: folder_upload,
-                text: "Загрузить папку",
+                type: "upload_folder",
+                logo: upload_folder,
+                name: "Загрузить папку",
             },
         ],
     ]

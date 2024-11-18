@@ -6,7 +6,7 @@ const { tokenService } = require("./tokenService")
 const { UserDTO } = require("../dto/userDTO")
 const { AuthError } = require("../exceptions/authError")
 const { fileModel } = require("../entities/fileModel")
-const { createFile } = require("../utils/createFile")
+const { createFolder } = require("../utils/createFolder")
 const { tokenModel } = require("../entities/tokenModel")
 
 class UserService {
@@ -21,7 +21,7 @@ class UserService {
         const user = await new userModel({ username, email, password: hashPassword, activationLink: activationId })
         await mailService.sendActivationMail(email, activationLink)
         await user.save()
-        await createFile(new fileModel({ user: user._id, name: "" }))
+        await createFolder(new fileModel({ user: user._id, name: ""}))
         const userDTO = new UserDTO(user)
         const tokens = await tokenService.generateTokens({ ...userDTO })
         await tokenService.saveToken(userDTO.id, tokens.refreshToken, 24 * 30)

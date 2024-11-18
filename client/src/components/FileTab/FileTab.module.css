@@ -9,7 +9,9 @@
     cursor: pointer;
     text-decoration: none;
 }
-
+.FileTab_active{
+    background-color: rgb(194, 231, 255)    ;
+}
 .FileTab:hover{
     background-color: #E9E6E6;
 }

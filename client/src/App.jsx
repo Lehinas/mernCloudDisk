@@ -17,7 +17,7 @@ function App () {
             const response = await AuthService.checkAuth()
             localStorage.setItem("token", response.data.tokens.accessToken)
             dispatch(setUser(response.data.user))
-            navigate("/")
+            navigate("/disk")
         } catch (e) {
             if (e.response && (e.response.status === 400 || e.response.status === 401)) {
                 if (location.pathname !== "/login" && location.pathname !== "/registration") {

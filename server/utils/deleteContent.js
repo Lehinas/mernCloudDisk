@@ -10,7 +10,7 @@ const deleteLocalFile = (filePath) => {
 }
 
 const deleteLocalFolder = (folderPath) => {
-    fs.rmdir(folderPath, { recursive: true }, (err) => {
+    fs.rm(folderPath, { recursive: true }, (err) => {
         if (err) {
             console.error(`Ошибка при удалении папки ${folderPath}:`, err)
         } else {

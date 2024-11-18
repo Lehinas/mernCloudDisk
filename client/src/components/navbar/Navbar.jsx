@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className={styles.navbar}>
             <div className={styles.navbar_logo}>
                 <img src={Logo} alt={"navbar_logo"} className={styles.navbar_logo_img}></img>
-                <Link to={"/"} className={styles.navbar_title}>Cloud</Link>
+                <Link to={"/disk"} className={styles.navbar_title}>Cloud</Link>
             </div>
             <Search />
             <div className={styles.navbar_auth}>

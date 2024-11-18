@@ -16,9 +16,8 @@ const usePopupSettings = () => {
     }, [])
     
     const togglePopup = (e) => {
-        e.stopPropagation()
+        e?.stopPropagation()
         setIsOpen((prev) => !prev)
-        console.log(isOpen)
     }
     
     return {

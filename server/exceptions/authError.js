@@ -8,8 +8,8 @@ class AuthError extends Error {
         this.errors = errors
     }
     
-    static UnauthorizedError () {
-        return new AuthError(401, 'Пользователь не авторизован')
+    static UnauthorizedError (message = "Пользователь не авторизован") {
+        return new AuthError(401, message)
     }
     
     static BadRequest (message, errors = []) {
@@ -18,5 +18,5 @@ class AuthError extends Error {
 }
 
 module.exports = {
-    AuthError: AuthError
+    AuthError: AuthError,
 }

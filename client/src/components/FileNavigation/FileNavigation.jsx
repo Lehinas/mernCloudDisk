@@ -11,10 +11,10 @@ import FileTab from "../FileTab/FileTab"
 const FileNavigation = () => {
     
     const tabs = [
-        { logo: home, text: "Главная", href: "home" },
-        { logo: folder, text: "Мой диск", href: "drive" },
-        { logo: recent, text: "Недавние", href: "recent" },
-        { logo: share, text: "Поделились со мной", href: "shared" },
+        { logo: home, text: "Главная", href: "/home" },
+        { logo: folder, text: "Мой диск", href: "/disk" },
+        { logo: recent, text: "Недавние", href: "/recent" },
+        { logo: share, text: "Поделились со мной", href: "/shared" },
     ]
     
     return (

@@ -1,18 +1,20 @@
 import { api } from "../http"
-import { useDispatch } from "react-redux"
 import { changeProgress } from "../store/uploadSlice"
+
 export default class FileService {
-    static async getFiles (dirId, sortName, sortType) {
+    static async getFiles (dirId, sortName, sortType, viewType) {
         return api.get("api/files", {
             params: {
                 parent: dirId,
                 sortName,
-                sortType
+                sortType,
+                viewType,
             },
         })
     }
     
     static async createDir (dirId, name) {
+        console.log(typeof dirId)
         return api.post("api/files/", { name, type: "dir", parent: dirId })
     }
     
@@ -23,11 +25,11 @@ export default class FileService {
                     ? progressEvent.total
                     : progressEvent.target.getResponseHeader("content-length") || progressEvent.target.getResponseHeader("x-decompressed-content-length")
                 if (totalLength) {
-                    const progress = Math.round((progressEvent.loaded * 100) / totalLength);
+                    const progress = Math.round((progressEvent.loaded * 100) / totalLength)
                     const updatedFile = {
                         ...uploadFile,
                         progress: progress,
-                    };
+                    }
                     dispatch(changeProgress(updatedFile))
                 }
             },
@@ -40,22 +42,42 @@ export default class FileService {
                 userId: userId,
                 fileId: fileId,
             },
-            responseType: 'blob'
+            responseType: "blob",
         })
     }
-    static async deleteFiles(userId, fileId){
+    
+    static async deleteFiles (userId, fileId) {
         return api.delete("api/files/", {
             params: {
                 userId: userId,
                 fileId: fileId,
-            }
+            },
         })
     }
-    static async searchFiles(searchName, userId){
+    
+    static async searchFiles (searchName, userId) {
         return api.get("api/files/search", {
             params: {
                 searchName,
-                userId
+                userId,
+            },
+        })
+    }
+    
+    static async getFile (fileId, userId) {
+        return api.get("api/files/file", {
+            params: {
+                fileId,
+                userId,
+            },
+            responseType: "blob",
+        })
+    }
+    
+    static async getFileInfo (file) {
+        return api.get("api/files/fileInfo", {
+            params: {
+                file,
             },
         })
     }

@@ -12,7 +12,11 @@ const { initFiles } = require("./utils/initFiles")
 initFiles(["uploads", "files"]) // создание директории(и папок внутри) для хранения пользовательских приколов
 
 const app = express()
-app.use(fileUpload())
+
+app.use(fileUpload({
+    defCharset: "utf8",
+    defParamCharset: "utf8",
+}))
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({

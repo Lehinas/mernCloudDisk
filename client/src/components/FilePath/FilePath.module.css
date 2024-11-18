@@ -1,17 +1,20 @@
 .FilePath {
-    padding: 5px 12px;
-    border-radius: 100px;
+    position: relative;
+    display: flex;
+}
+
+.FilePath_wrap {
     display: flex;
     align-items: center;
     border: none;
+    padding: 5px 12px;
+    border-radius: 100px;
     background-color: inherit;
+    max-width: 250px;
 }
 
-.FilePath img {
-}
 
-
-.FilePath:hover {
+.FilePath_wrap:hover {
     background-color: #E9E6E6;
 
 }
@@ -21,18 +24,19 @@
     font-size: 24px;
     font-weight: 500;
     position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
-.FilePath_btn_chevron::after {
-    content: "";
-    display: inline-block;
-    background: url("../../assets/images/chevron_right.svg") no-repeat center;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
+.FilePath_popup {
+    background-color: white;
     position: absolute;
-    right: -35px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 0;
+    top: 110%;
+    width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
-

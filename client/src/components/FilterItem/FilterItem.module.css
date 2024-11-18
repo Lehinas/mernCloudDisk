@@ -1,33 +1,44 @@
 .FilterItem {
-    display: flex;
-    align-items: center;
-    border: 1px solid #1F1F1F;
-    border-radius: 8px;
     width: fit-content;
-    gap: 5px;
-    padding: 5px 10px 5px 15px;
     cursor: pointer;
     position: relative;
     background-color: inherit;
+    display: flex;
+    gap: 3px;
 }
-
-.FilterItem:hover {
-    background-color: #edecec;
-}
-
-.FilterItem:active {
-    background-color: #edecec;
-}
-
 
 
 .FilterItem_btn {
+    border: 1px solid #1F1F1F;
+    border-radius: 8px;
+    padding: 5px 10px 5px 15px;
     color: rgb(68, 71, 70);
     cursor: pointer;
     font-size: 16px;
     font-weight: 400;
     background-color: inherit;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.FilterItem_btn_active{
+    background-color: rgb(194, 231, 255);
+    border: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.FilterItem_btn:hover {
+    background-color: #edecec;
+}
+
+.FilterItem_btn:active {
+    background-color: #edecec;
+}
+
+.FilterItem_btn_active:hover{
+    background-color: #B3D7EF;
 }
 
 .FilterItem_img {
@@ -36,43 +47,24 @@
     fill: green;
 }
 
-.FilterItem_popup {
-    background-color: white;
-    position: absolute;
-    left: 0;
-    top: 110%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    padding: 10px 0;
-}
-
-.FilterItem_popup_item {
-    padding: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.FilterItem_clean{
     border: none;
-    width: 100%;
     background-color: inherit;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
 }
 
-.FilterItem_popup_item:hover {
-    background-color: #edecec;
+.FilterItem_clean_active{
+    background-color: rgb(194, 231, 255);
+    border: none;
+    border-radius: 0 8px 8px 0;
+}
+.FilterItem_clean_active:hover{
+    background-color: #B3D7EF;
 }
 
-.FilterItem_popup_item:active {
-    background-color: #edecec;
+.FilterItem_clean img{
+    width: 16px;
 }
 
-.FilterItem_popup_item:focus {
-    background-color: #edecec;
-}
-
-.FilterItem_popup_img {
-    width: 30px;
-}
-
-.FilterItem_popup_text {
-    font-size: 15px;
-}

@@ -9,11 +9,11 @@ const authMiddleware = (req, res, next) => {
     try {
         const accessToken = req.headers.authorization
         if (!accessToken) {
-            return next(AuthError.UnauthorizedError())
+            return next(AuthError.UnauthorizedError("Нету акцесс токена"))
         }
         const userData = tokenService.validateAccessToken(accessToken)
         if (!userData) {
-            return next(AuthError.UnauthorizedError())
+            return next(AuthError.UnauthorizedError("Акцесс токен не действителен"))
         }
         req.user = userData
         next()

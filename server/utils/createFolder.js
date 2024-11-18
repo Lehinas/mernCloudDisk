@@ -1,7 +1,8 @@
 const config = require("config")
 const fs = require("fs")
 const { FileError } = require("../exceptions/fileError")
-const createFile = async (file) => {
+
+const createFolder = async (file) => {
     const filePath = `${config.get("filesDirPath")}\\${file.user}\\${file.path}`
     return new Promise((resolve, reject) => {
         try {
@@ -18,5 +19,5 @@ const createFile = async (file) => {
 }
 
 module.exports = {
-    createFile
+    createFolder,
 }

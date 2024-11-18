@@ -8,7 +8,7 @@ const userSchema = new Schema({
     diskSpace: {type: "Number", default: 1024**3*10},
     usedSpace: {type: "Number", default: 0},
     avatar: {type: "String"},
-    files: [{type: ObjectId, ref: "fileModel"}],
+    files: {type: ObjectId, ref: "fileModel"},
     activationLink: {type: "String"},
     isActivated: {type: Boolean, default: false}
 })

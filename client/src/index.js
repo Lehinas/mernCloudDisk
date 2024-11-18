@@ -7,6 +7,7 @@ import {store} from "./store/store";
 import {Provider} from "react-redux";
 import Auth from "./pages/Auth/Auth"
 import Disk from "./pages/Disk/Disk"
+import NotFound from "./pages/NotFound/NotFound"
 
 
 
@@ -24,8 +25,13 @@ const router = createBrowserRouter([
 				element: <Auth type={"login"}/>
 			},
             {
-                path: "/drive",
+                path: "/disk",
                 element: <Disk />
+            },
+            {
+                // Обработка неопределенных маршрутов
+                path: "*",
+                element: <NotFound />
             }
 		]
 	}

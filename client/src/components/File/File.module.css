@@ -1,9 +1,10 @@
 .File {
     padding: 10px 0;
-    border-bottom: solid 2px #566885;
+    border-bottom: solid 2px rgba(120, 116, 116, 0.5);
     display: grid;
     grid-template-columns: 1fr 4fr repeat(4, 1fr);
     align-items: center;
+    cursor: pointer;
 }
 
 .File:hover {
@@ -18,8 +19,6 @@
     display: block;
 }
 
-
-
 .File:hover .File_list_date {
     grid-column-start: 3;
 }
@@ -31,7 +30,8 @@
 .File_list_img {
     grid-column-start: 1;
     justify-self: center;
-    width: 36px;
+    width: 32px;
+    height: 32px;
 }
 
 .File_list_name {
@@ -42,6 +42,7 @@
 .File_list_date {
     grid-column-start: 5;
     justify-self: center;
+    white-space: nowrap;
 }
 
 .File_list_size {
@@ -81,11 +82,12 @@
     flex-direction: column;
     width: 100px;
     position: relative;
-    transition: transform 3s ease;
+    gap: 5px;
 }
 
 .File_plate_img {
     width: 100px;
+    height: 100px;
 }
 
 .File_plate_name {
@@ -149,4 +151,11 @@
 
 .File_plate_info_btn:active img {
     transform: scale(0.95);
+}
+
+.selected {
+    background-color: #C2E7FF;
+}
+.selected:hover {
+    background-color: #C2E7FF;
 }

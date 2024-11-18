@@ -11,7 +11,7 @@ const initialState = {
     sortName: "date",
     sortType: "inc",
     fileView: "list",
-    searchName: "",
+    viewType: ""
 }
 
 export const fileSlice = createSlice({
@@ -48,9 +48,9 @@ export const fileSlice = createSlice({
         changeFileView: (state, action) => {
             state.fileView = action.payload
         },
-        changeSearchName: (state, action) => {
-            state.searchName = action.payload
-        },
+        setViewType: (state, action) => {
+            state.viewType = action.payload
+        }
     },
 })
 
@@ -59,13 +59,12 @@ export const {
     addFile,
     setCurrentDir,
     pushToFolderStack,
-    popFromFolderStack,
     changeSortName,
     changeSortType,
     changeFileView,
-    changeSearchName,
     setCurrentFolder,
     setFolderStack,
+    setViewType,
 } = fileSlice.actions
 
 export const fileReducer = fileSlice.reducer

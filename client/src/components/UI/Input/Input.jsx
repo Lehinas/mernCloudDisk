@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react"
-import styles from "../AuthInput/Input.module.css"
+import styles from "../Input/Input.module.css"
 
 const Input = forwardRef(({ placeholder, value, onChange, type, style, multiple, className }, ref) => {
     return (

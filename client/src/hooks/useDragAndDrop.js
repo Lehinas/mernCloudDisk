@@ -27,7 +27,6 @@ export const useDragAndDrop = () => {
     const dropHandler = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        console.log(e.dataTransfer.files)
         const files = [...e.dataTransfer.files]
         uploadHandler(files)
         setDragEnter(false)
